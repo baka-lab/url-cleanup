@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+ 
+    "name": "UrlCleanup",
+    "description": "Убирает из URL в адресной строке UTM-метки, чтобы можно было поделиться ссылкой, не очищая её от мусора вручную",
+    "version": "0.1",
+	
+	"content_scripts": [ {
+		"js": ["url-cleanup.js"],
+		"matches": [ "http://*/*", "https://*/*" ]
+	}],
+
+    "permissions": [
+        "activeTab"
+    ]
+}
