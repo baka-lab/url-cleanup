@@ -17,7 +17,7 @@ const utms = [
 var url = window.location.search;
 utms.forEach(removeUTM);
 var newUrl = window.location.origin + window.location.pathname + url;
-window.history.pushState(null, document.title, newUrl);
+if (newUrl != window.location.href) window.history.pushState(null, document.title, newUrl);
 
 function removeUTM (utm) {
 	url = url.split(utm)[0];
