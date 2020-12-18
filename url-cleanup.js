@@ -1,11 +1,22 @@
 // ==UserScript==
 // @name UrlCleanup
-// @description Убирает из URL в адресной строке UTM-метки
+// @description Убирает из URL в адресной строке UTM-метки и подсветку результатов поиска в Google (.com & .ru) (#:~:text=...)
 // @author Baka
 // @license GPL
-// @version 0.1
+// @version 0.2
 // @include *
 // ==/UserScript==
+
+if (['www.google.com', 'www.google.ru'].includes(window.location.host)) {
+	const MARKER = '#:~:text=';
+	[...document.querySelectorAll('a')].forEach((link) => {
+		if (link.href.includes(MARKER)) {
+			const url = new URL(link.href);
+			const parts = url.href.split(MARKER);
+			link.href = parts[0];
+		}
+	});
+}
 
 const utms = [
 	'utm_source',
