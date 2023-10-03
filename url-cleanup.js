@@ -23,7 +23,7 @@ const utms = [
 	'utm_campaign',
 	'utm_medium',
 	'utm_content',
-	'utm_referer',
+	'utm_referrer',
 	'utm_term'
 ];
 var url = window.location.search;
